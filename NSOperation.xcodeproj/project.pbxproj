@@ -13,6 +13,8 @@
 		D96997721CE9A5E300AF905F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96997701CE9A5E300AF905F /* Main.storyboard */; };
 		D96997741CE9A5E300AF905F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D96997731CE9A5E300AF905F /* Assets.xcassets */; };
 		D96997771CE9A5E300AF905F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96997751CE9A5E300AF905F /* LaunchScreen.storyboard */; };
+		D96997801CE9B1DE00AF905F /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D969977F1CE9B1DE00AF905F /* DownloadOperation.m */; };
+		D96997AB1CE9E84100AF905F /* MyOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D96997AA1CE9E84100AF905F /* MyOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		D96997731CE9A5E300AF905F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D96997761CE9A5E300AF905F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D96997781CE9A5E300AF905F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D969977E1CE9B1DE00AF905F /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
+		D969977F1CE9B1DE00AF905F /* DownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperation.m; sourceTree = "<group>"; };
+		D96997A91CE9E84100AF905F /* MyOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOperation.h; sourceTree = "<group>"; };
+		D96997AA1CE9E84100AF905F /* MyOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,10 @@
 				D969976B1CE9A5E300AF905F /* AppDelegate.m */,
 				D969976D1CE9A5E300AF905F /* ViewController.h */,
 				D969976E1CE9A5E300AF905F /* ViewController.m */,
+				D969977E1CE9B1DE00AF905F /* DownloadOperation.h */,
+				D969977F1CE9B1DE00AF905F /* DownloadOperation.m */,
+				D96997A91CE9E84100AF905F /* MyOperation.h */,
+				D96997AA1CE9E84100AF905F /* MyOperation.m */,
 				D96997701CE9A5E300AF905F /* Main.storyboard */,
 				D96997731CE9A5E300AF905F /* Assets.xcassets */,
 				D96997751CE9A5E300AF905F /* LaunchScreen.storyboard */,
@@ -152,6 +162,8 @@
 				D969976F1CE9A5E300AF905F /* ViewController.m in Sources */,
 				D969976C1CE9A5E300AF905F /* AppDelegate.m in Sources */,
 				D96997691CE9A5E300AF905F /* main.m in Sources */,
+				D96997AB1CE9E84100AF905F /* MyOperation.m in Sources */,
+				D96997801CE9B1DE00AF905F /* DownloadOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
