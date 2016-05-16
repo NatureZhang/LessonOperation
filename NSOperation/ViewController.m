@@ -15,7 +15,7 @@
  2 使用NSBlockOperation 可以使用块代码，不必单写线程方法，便于传递多个参数
  3 可以控制线程并发数，有效的对线程进行控制
  4 可以添加线程完成代码块，执行需要的操作
- 5  
+ 5
  
  */
 
@@ -33,6 +33,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) NSOperation *operation;
+@property (nonatomic, strong) NSBlockOperation *blockOperation;
 @property (nonatomic, strong) DownloadOperation *dOperation;
 @property (nonatomic, strong) NSOperationQueue *operationQueue;//队列
 
@@ -157,29 +158,58 @@
     
 //     [self createOperationQueue];
     
-    _operation = [[MyOperation alloc] init];
-    [_operation start];
+//    _operation = [[MyOperation alloc] init];
+//    [_operation start];
     
+    
+    
+    /*
+      添加到queue中的操作可以通过cancel取消
+     */
+    self.blockOperation = [NSBlockOperation blockOperationWithBlock:^{
+       
+        if ([self.blockOperation isCancelled]) {
+            NSLog(@"取消了");
+            return;
+        }
+        
+        for (int i = 0; i < 10000 && ![self.blockOperation isCancelled]; i ++) {
+            NSLog(@"blockOperationRun_%@_%d", [NSThread currentThread], i);
+        }
+        
+        NSLog(@"%@", self.blockOperation);
+    }];
+    
+    self.operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(runOperation) object:nil];
+    
+    self.operationQueue = [[NSOperationQueue alloc] init];
+    [self.operationQueue addOperation:self.blockOperation];
+    [self.operationQueue addOperation:self.operation];
 }
 
 - (IBAction)cancelOperation:(id)sender {
     
     // cancel 已经开始的操作无法取消，而未开始的操作可以取消
-    [_operation cancel];
+//    [_operation cancel];
     
     // 可以cancel掉队列中的所有未开始的操作
 //    [self.operationQueue cancelAllOperations];
     
 //    [self.operationQueue setSuspended:YES];
     
+    [self.blockOperation cancel];
+    [self.operation cancel];
+    
 }
 
 - (void)runOperation {
     
-    for (int i = 0; i < 10000; i ++) {
+    for (int i = 0; i < 10000 && ![self.operation isCancelled]; i ++) {
         
         NSLog(@"operation_%@_%d_%d", [NSThread currentThread], [NSThread isMainThread], i);
     }
+    
+    NSLog(@"%@", self.operation);
 }
 
 @end
