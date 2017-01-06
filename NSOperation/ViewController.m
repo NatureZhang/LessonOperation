@@ -15,7 +15,6 @@
  2 使用NSBlockOperation 可以使用块代码，不必单写线程方法，便于传递多个参数
  3 可以控制线程并发数，有效的对线程进行控制
  4 可以添加线程完成代码块，执行需要的操作
- 5
  
  */
 
@@ -23,11 +22,21 @@
  
  1 http://www.cnblogs.com/mjios/archive/2013/04/19/3029765.html
  2 http://www.saitjr.com/ios/ios-multithreading-nsoperation.html
- 3 
- 4
  
  */
 
+/*
+ http://www.jianshu.com/p/52fe1b85c404
+ 感觉这个总结的挺好的
+ 
+ 有了GCD 为什么还会有NSOperationQueue
+ 1  NSOperationQueue以及相关对象是基于GCD的Objective-C对象的封装，作为一个对象，为我们提供了更多的选项
+ 2  NSOperationQueue任务可以很方便的取消（也只能取消未执行的任务），而GCD没法停止已经加入队列的任务（其实是有的，但需要许多复杂的代码）
+ 3  NSOperation能够方便的通过依赖关系设置操作的执行顺序，可以控制任务在特定的任务执行完成后才执行，而GCD要实现这个功能的话，需要通过barrier或者group来控制顺序，如果依赖关系复杂的话，代码逻辑就非常复杂了
+ 4  NSOperation支持KVO，可以方便的监听任务的状态（完成、执行中、取消。。）
+ 5  NSOperation可以设置同一个队列中任务的优先级，能够使同一个并行队列中的任务区分先后的执行，而在GCD中，只能区分不同队列的优先级，如果要区分block任务的优先级，也需要大量的复杂代码
+ 6  通过自定义NSOperation，封装任务逻辑，提高整个代码的复用度
+ */
 
 
 @interface ViewController ()
